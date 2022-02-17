@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from sre_constants import CATEGORY
 from unicodedata import category
 from django.db import models
@@ -19,7 +20,7 @@ class Category(models.Model):
     
 class Photo(models.Model):
     category = models.ForeignKey(Category,on_delete=models.SET_NULL,null=True)
-    image = models.ImageField(null=True,blank=False)
+    image = models.ImageField(null=True,upload_to='images')
     desc = models.CharField(max_length=100)
 
 
