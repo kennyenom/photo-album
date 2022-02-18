@@ -20,7 +20,7 @@ class Category(models.Model):
     
 class Photo(models.Model):
     category = models.ForeignKey(Category,on_delete=models.SET_NULL,null=True)
-    image = models.ImageField(null=True,upload_to='images')
+    image = models.ImageField(upload_to='images')
     desc = models.CharField(max_length=100)
 
 
